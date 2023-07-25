@@ -31,3 +31,6 @@ Guardar los cambios, guarda el archivo config.js con los valores actualizados.
 
 Una vez que hayas configurado el archivo config.js con la información correcta de tu base de datos local, podrás ejecutar la aplicación sin problemas.
 
+## Extra:
+
+Adicional se agrega a la raiz del proyecto el archivo de la base de datos (prueba_tecnica_users.sql) para realizar la conección por mysql.
