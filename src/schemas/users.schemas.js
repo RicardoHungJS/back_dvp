@@ -1,4 +1,4 @@
-const joi = require('joi');
+import joi from 'joi';
 
 const userId = joi.number();
 const loginName = joi
@@ -9,11 +9,9 @@ const loginName = joi
 const avatarUrl = joi.string();
 const profileUrl = joi.string();
 
-const createUser = joi.object({
+export const createUser = joi.object({
   id: userId.required(),
   loginName: loginName.required(),
   avatarUrl: avatarUrl.required(),
   profileUrl: profileUrl.required(),
 });
-
-module.exports = { createUser };

@@ -1,4 +1,4 @@
-const usersRouter = require('./users.router');
+import usersRouter from './users.router.js';
 
 const routerApi = (app) => {
   app.get('/', (req, res) => {
@@ -7,4 +7,4 @@ const routerApi = (app) => {
   app.use('/users', usersRouter);
 };
 
-module.exports = routerApi;
+export default routerApi;

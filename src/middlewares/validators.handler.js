@@ -1,4 +1,4 @@
-const boom = require('@hapi/boom');
+import boom from '@hapi/boom';
 
 const validatorHandler = (schema, property) => {
   return (req, res, next) => {
@@ -12,4 +12,4 @@ const validatorHandler = (schema, property) => {
   };
 };
 
-module.exports = validatorHandler;
+export default validatorHandler;

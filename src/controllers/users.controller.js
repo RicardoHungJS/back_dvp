@@ -1,5 +1,5 @@
-const { pool } = require('./../database/database');
-const boom = require('@hapi/boom');
+import { pool } from './../database/database.js';
+import boom from '@hapi/boom';
 
 class usersService {
   async connectDatabaseAndQueryRequest(query) {
@@ -25,4 +25,4 @@ class usersService {
   }
 }
 
-module.exports = usersService;
+export default usersService;

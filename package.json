@@ -3,9 +3,10 @@
   "version": "1.0.0",
   "description": "backend prueba técnica dvp usuarios",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "node --watch src/"
+    "dev": "nodemon src/"
   },
   "keywords": [
     "backend",

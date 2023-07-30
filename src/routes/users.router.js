@@ -1,28 +1,28 @@
-const express = require('express');
-const validatorHandler = require('../middlewares/validators.handler');
-const { createUser } = require('../schemas/users.schemas');
-const usersControllers = require('../controllers/users.controller');
-const requestTypesConstants = require('../constants/constants');
+import express from 'express';
+import validatorHandler from '../middlewares/validators.handler.js';
+import { createUser } from '../schemas/users.schemas.js';
+import usersService from '../controllers/users.controller.js';
+import { requestTypesConstants } from '../constants/constants.js';
 
-const router = express.Router();
-const usersService = new usersControllers();
+const usersRouter = express.Router();
+const instanceUsersService = new usersService();
 
-router.get('/', async (req, res, next) => {
+usersRouter.get('/', async (req, res, next) => {
   try {
-    const users = await usersService.getUsers();
+    const users = await instanceUsersService.getUsers();
     res.json(users);
   } catch (error) {
     next(error);
   }
 });
 
-router.post(
+usersRouter.post(
   '/',
   validatorHandler(createUser, requestTypesConstants.BODY),
   async (req, res, next) => {
     try {
       const body = req.body;
-      await usersService.setUser(body);
+      await instanceUsersService.setUser(body);
       res.status(200).json({
         message: 'Usuario guardado correctamente',
         status: 200,
@@ -33,4 +33,4 @@ router.post(
   }
 );
 
-module.exports = router;
+export default usersRouter;

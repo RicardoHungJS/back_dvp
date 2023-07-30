@@ -1,8 +1,8 @@
-const app = require('./app')
+import app from './app.js';
 
 const main = () => {
-    app.listen(app.get("port"));
-    console.log(`Server on port http://localhost:${app.get("port")}`);
+  app.listen(app.get('port'));
+  console.log(`Server on port http://localhost:${app.get('port')}`);
 };
 
 main();

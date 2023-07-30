@@ -1,11 +1,11 @@
-const errorHandler = (err, req, res, next) => {
+export const errorHandler = (err, req, res, next) => {
   res.status(500).json({
     error: err.message,
     stack: err.stack,
   });
 };
 
-const boomErrorHandler = (err, req, res, next) => {
+export const boomErrorHandler = (err, req, res, next) => {
   if (err.isBoom) {
     const { output } = err;
     res.status(output.statusCode).json(output.payload);
@@ -13,5 +13,3 @@ const boomErrorHandler = (err, req, res, next) => {
     next(err);
   }
 };
-
-module.exports = {errorHandler, boomErrorHandler };

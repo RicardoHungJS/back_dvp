@@ -1,9 +1,6 @@
-const express = require('express');
-const {
-  errorHandler,
-  boomErrorHandler,
-} = require('./middlewares/error.handler');
-const cors = require('cors');
+import express from 'express';
+import { errorHandler, boomErrorHandler } from './middlewares/error.handler.js';
+import cors from 'cors';
 
 const whiteList = ['http://localhost:5173', '*'];
 
@@ -13,10 +10,10 @@ app.use(cors({ origin: whiteList }));
 app.use(express.json());
 
 // Routes
-const routerApi = require('./routes');
+import routerApi from './routes/index.js';
 
 // Settings
-app.set('port', 4000);
+app.set('port', 3100);
 
 // Routes
 routerApi(app);
@@ -25,4 +22,4 @@ routerApi(app);
 app.use(boomErrorHandler);
 app.use(errorHandler);
 
-module.exports = app;
+export default app;
